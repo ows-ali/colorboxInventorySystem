@@ -1,0 +1,114 @@
+2017-06-03 03:04:54 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php:630
+Stack trace:
+#0 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php(630): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php(563): yii\db\Connection->createPdoInstance()
+#2 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php(896): yii\db\Connection->open()
+#3 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php(883): yii\db\Connection->getMasterPdo()
+#4 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#5 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Command.php(896): yii\db\Command->prepare(true)
+#6 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\mysql\Schema.php(199): yii\db\Command->queryAll()
+#8 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\mysql\Schema.php(98): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Schema.php(152): yii\db\mysql\Schema->loadTableSchema('migration')
+#10 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\controllers\MigrateController.php(199): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#11 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(774): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#12 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(138): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#13 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#14 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#16 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('', Array)
+#17 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('', Array)
+#18 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate', Array)
+#19 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate', Array)
+#20 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#21 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\yii(31): yii\base\Application->run()
+#22 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php:568
+Stack trace:
+#0 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php(896): yii\db\Connection->open()
+#1 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Connection.php(883): yii\db\Connection->getMasterPdo()
+#2 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#3 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Command.php(896): yii\db\Command->prepare(true)
+#4 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\mysql\Schema.php(199): yii\db\Command->queryAll()
+#6 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\mysql\Schema.php(98): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\db\Schema.php(152): yii\db\mysql\Schema->loadTableSchema('migration')
+#8 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\controllers\MigrateController.php(199): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#9 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(774): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#10 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(138): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#11 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#12 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#14 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\Controller.php(128): yii\base\Controller->runAction('', Array)
+#15 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\Module.php(523): yii\console\Controller->runAction('', Array)
+#16 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('migrate', Array)
+#17 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('migrate', Array)
+#18 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\vendor\yiisoft\yii2\base\Application.php(380): yii\console\Application->handleRequest(Object(yii\console\Request))
+#19 D:\xampp\htdocs\macroimsadminlte\macroimsadminlte\yii(31): yii\base\Application->run()
+#20 {main}
+Additional Information:
+
+2017-06-03 03:04:50 [-][-][-][info][application] $_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files (x86)\\AMD APP\\'
+    'APPDATA' => 'C:\\Users\\Kashan\\AppData\\Roaming'
+    'AVR32_HOME' => 'C:\\WinAVR-20100110'
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'KASHAN-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Kashan'
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE'
+    'LOCALAPPDATA' => 'C:\\Users\\Kashan\\AppData\\Local'
+    'LOGONSERVER' => '\\\\KASHAN-PC'
+    'MKL_SERIAL' => 'YES'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\WinAVR-20100110\\bin;C:\\WinAVR-20100110\\utils\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.0\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\ProgramData\\Anaconda3;C:\\ProgramData\\Anaconda3\\Scripts;C:\\ProgramData\\Anaconda3\\Library\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_ARCHITEW6432' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '3a09'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files (x86)'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\PowerShell\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\Kashan\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Kashan\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'Kashan-PC'
+    'USERNAME' => 'Kashan'
+    'USERPROFILE' => 'C:\\Users\\Kashan'
+    'VirtualC' => 'C:\\Program Files (x86)\\VirtualC\\Virtual-C IDE\\'
+    'VS110COMNTOOLS' => 'C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'D:\\xampp\\htdocs\\macroimsadminlte\\macroimsadminlte\\'
+    'PHP_SELF' => 'D:\\xampp\\htdocs\\macroimsadminlte\\macroimsadminlte\\yii'
+    'SCRIPT_NAME' => 'D:\\xampp\\htdocs\\macroimsadminlte\\macroimsadminlte\\yii'
+    'SCRIPT_FILENAME' => 'D:\\xampp\\htdocs\\macroimsadminlte\\macroimsadminlte\\yii'
+    'PATH_TRANSLATED' => 'D:\\xampp\\htdocs\\macroimsadminlte\\macroimsadminlte\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1496430290.1644
+    'REQUEST_TIME' => 1496430290
+    'argv' => [
+        0 => 'D:\\xampp\\htdocs\\macroimsadminlte\\macroimsadminlte\\yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]

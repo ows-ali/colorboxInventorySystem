@@ -1,0 +1,50 @@
+{
+
+    "name": "COLORBOX",
+    "description": "An Inventory Management System",
+    "keywords": ["colorbox", "syed enterprises", "colourbox", "yii2", "framework", "advanced", "application template", "Adminlte"],
+    "homepage": "https://github.com/owaisalics/colorboxInventorySystem",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Owais Ali",
+            "email": "owaisali.cs@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "kartik-v/yii2-widget-datetimepicker": "*",
+         "setasign/fpdf": "1.8.1",
+        "mpdf/mpdf": "^6.1",
+        "2amigos/yii2-chartjs-widget": "~2.0",
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-export": "@dev"
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*",
+
+        "kartik-v/yii2-widget-datepicker": "@dev"
+
+
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+
+
+
+
+}
