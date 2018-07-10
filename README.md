@@ -5,15 +5,14 @@
 ### Features!
 This project has the following features/functionalities:
 
-* It has the ability to manage customers, salesmen and orders from pending to delivery status
+* It manages customers, salesmen and orders from pending to delivery status
 * It can generate multiple barcodes on a single click just by entering the quantity
 * An interactive way to add, retrieve and track history of the inventory
-* On Dashboard, it shows the current number of pending orders of current month
-* It also shows the progrss of orders delivered on yearly basis for the management level purposes.
-* It sends a notification when a shade quantity drops from a defined limit which can be removed by clicking on it
-* It is a comperhensive and ready to use inventory management system for shades/threads boxes
+* On Dashboard, it shows the number of pending orders of current month
+* It shows the progrss of orders delivered on yearly basis for the management level purposes.
+* It also sends a notification when a shade quantity drops from a defined limit which can be removed by clicking on it
 
-This project mainly uses the following technologies:
+This project uses the following technologies:
 
 1.  PHP 5.6 with Yii 2 Framework
 2.  A 1-D Scanner and a GK88t Zebra Printer with kit
@@ -36,19 +35,19 @@ Notifications : ![picture alt](backend/web/img/notifications.PNG "Notifications"
 
 ### Pre-requisites
 
-This project works perfectly fine with following:
+This project works fine with:
 PHP version 5.6.30
-Yii2 version 2.0.15.1 and 10.1.21-MariaDB
+Yii2 version 2.0.15.1 and 
+10.1.21-MariaDB
 
 ## Getting Started:
 1. Clone this repository by `git clone https://github.com/owaisalics/coloboxInventorySystem.git` 
-2. Run the SQL file named db-file.sql located in db directory (It will generate a Database with name "colorbox", create the tables and populate the tables)
-3. Run `composer install` in the root directory to install the required libraries.
-4. Make sure the xampp (Apache and Mysql servers) are running
+2. Change the db name in `common/config/main-local.php`
+3. Run `yii migrate` or run SQL file named db-file.sql located in db directory 
+4. Run `composer install` in the root directory to install the required libraries.
 5. Go to `localhost/directory_name/backend/web`
 6. Enjoy!
 
-(You are most welcome to comments, complaints, suggestions or get in touch with me if you have any issues in setting up)
 
 ### Roles:
 #####  1. Inventory Operator
@@ -73,16 +72,16 @@ Login Credentials
 You can use following credentials to login for different roles:
 
 Admin Username: `admin`
-Password: `qwe1234`
+Password: `admin`
 
 Inventory Operator Username: `inventory_operator`
-Password: `qwe1234`
+Password: `inventory_operator`
 
 Order Operator Username: `order_operator`
-Password: `qwe1234`
+Password: `order_operator`
+
+Comments, complaints or suggestions are appreciated.
 
 ----
 
-Free Software.
-Open for suggestions.
 By, [Owais Ali](https://github.com/owaisalics)

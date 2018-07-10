@@ -29,16 +29,7 @@ $this->title = 'Color box';
         { y: 200, label: "bb"},
         ]
       },
-      //       {
-      //   type: "bar",
-      //   dataPoints: [
-      //   { y: 0, label: "Italy"},
-      //   { y: 0, label: "China"},
-      //   { y: 0, label: "France"},
-      //   { y: 0, label: "Great Britain"},
-      //   ]
-      // },
-
+    
       ]
     });
 
@@ -47,41 +38,6 @@ chart.render();
 </script>
 
 
-
-<!--
-  <script type="text/javascript">
-  window.onload = function () {
-    var chart = new CanvasJS.Chart("chartContainer",
-    {
-      title:{
-        text: "Top 10 Customers of the Month"
-      },
-      data: [
-      {
-        type: "bar",
-        dataPoints: [
-        { y: 185, label: "AA Enterprises"},
-        { y: 128, label: "Solstech"},
-        { y: 246, label: "ThreadLtd"},
-        { y: 272, label: "AAAAA"},
-        ]
-      },
-            {
-        type: "bar",
-        dataPoints: [
-        { y: 0, label: "Italy"},
-        { y: 0, label: "China"},
-        { y: 0, label: "France"},
-        { y: 0, label: "Great Britain"},
-        ]
-      },
-
-      ]
-    });
-
-chart.render();
-}
-</script>-->
 <script type="text/javascript" src="../views/site/script/canvasjs.min.js"></script>
 
         <meta charset="UTF-8">
@@ -160,27 +116,27 @@ chart.render();
 </div><!-- /.box -->
 
 
-                            <!-- Area chart -->
-                            <div class="box box-primary">
-                                <div class="box-header">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <h3 class="box-title">Full Width Area Chart</h3>
-                                </div>
-                                <div class="box-body">
-                                    <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
-                                </div><!-- /.box-body-->
-                            </div><!-- /.box -->
+    <!-- Area chart -->
+    <div class="box box-primary">
+        <div class="box-header">
+            <i class="fa fa-bar-chart-o"></i>
+            <h3 class="box-title">Full Width Area Chart</h3>
+        </div>
+        <div class="box-body">
+            <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
+        </div><!-- /.box-body-->
+    </div><!-- /.box -->
 
-                        </div><!-- /.col -->
+</div><!-- /.col -->
 
-                        <div class="col-md-6">
-                            <!-- Bar chart -->
-                            <div class="box box-primary">
-                                <div class="box-header">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <h3 class="box-title">Line Chart</h3>
-                                </div>
-                                <div class="box-body">
+<div class="col-md-6">
+    <!-- Bar chart -->
+    <div class="box box-primary">
+        <div class="box-header">
+            <i class="fa fa-bar-chart-o"></i>
+            <h3 class="box-title">Line Chart</h3>
+        </div>
+        <div class="box-body">
 <?= ChartJs::widget([
     'type' => 'line',
     'options' => [

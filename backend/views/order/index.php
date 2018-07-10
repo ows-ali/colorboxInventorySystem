@@ -39,10 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
             'attribute'=>'customer_id',
             'value'=>'customer.customer_name'
-            // 'label'=>'Customer Name',
-            // 'format'=>'text',//raw, html
-            // 'value' => CustomerProfile::find()->where(['customer_id'=>'customer_id'])->all()->customer_name,//One($model->customer_id)->customer_name,
-            // 'content'=>CustomerProfile::find()->all(),
+           
             ],
 
 
@@ -61,10 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             // 'order_date',
             'status',
-            // 'created_at',
-            // 'approved_at',
-            // 'delivered_at',
-            // 'cancelled_at',
+          
 
             [
           'class' => 'yii\grid\ActionColumn',

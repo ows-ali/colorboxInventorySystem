@@ -22,7 +22,8 @@
         "mpdf/mpdf": "^6.1",
         "2amigos/yii2-chartjs-widget": "~2.0",
         "kartik-v/yii2-grid": "@dev",
-        "kartik-v/yii2-export": "@dev"
+        "kartik-v/yii2-export": "@dev",
+        "bizley/migration": "~2.3.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

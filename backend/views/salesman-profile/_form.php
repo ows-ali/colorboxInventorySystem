@@ -38,24 +38,7 @@ use kartik\date\DatePicker;
 ?>
     
     <?php
-  /*
-    
-    echo DatePicker::widget([
-        'model' => $model,
-        
-    'attribute' => 'joining_date', 
-
-        'type' => DatePicker::TYPE_COMPONENT_PREPEND,
-        // 'name'=>"Joining Date",
-    // 'value' => date("Y-m-d"),//, strtotime('+2 days')),
-    'options' => ['label'=>"Joining Date",'placeholder' => date("Y-m-d"),'style'=>'width:420px'],
-    
-    'pluginOptions' => [
-        'format' => 'yyyy-mm-d',
-        'todayHighlight' => true
-    ]
-])
-*/
+  
 ?>
 
     <div class="form-group">

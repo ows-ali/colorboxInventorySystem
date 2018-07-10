@@ -21,11 +21,6 @@ use kartik\datetime\DateTimePicker;
 /* @var $form yii\widgets\ActiveForm */
 
 
-// echo '<pre>';
-// echo "<pre";
-// print_r($model);
-// print_r($model2[0]);
-// die;
 ?>
 
 <div class="order-form">
@@ -34,7 +29,6 @@ use kartik\datetime\DateTimePicker;
     $all_shades = json_encode(Shade::find()->select(['shade_name'])->column());
 
      ?>
-    <!-- $all_shades = json_encode(Shade::find()->select(['shade_name'])->column()); -->
 
 <?php 
          $customers = CustomerProfile::find()->orderBy('customer_name')->asArray()->all(); 
@@ -81,19 +75,7 @@ $form->field($model, 'order_date')->widget(DatePicker::classname(), [
         'todayHighlight' => true
     ]    
 ])
-/*
-        DatePicker::widget([
-        'model' => $model,
-        'type' => DatePicker::TYPE_COMPONENT_PREPEND,
-        'attribute' => 'order_date', 
-        'value' => date('yyyy-mm-d', strtotime('+0 days')),
-        'options' => ['placeholder' => 'Select date ...','style'=>'width:420px'],
-        'pluginOptions' => [
-        'format' => 'yyyy-mm-d',
-        'todayHighlight' => true
-        ]
-        ])
-*/
+
 ?>
 
 
@@ -102,9 +84,6 @@ $form->field($model, 'order_date')->widget(DatePicker::classname(), [
 if (Yii::$app->user->identity->name=="Admin")
     echo $form->field($model, 'status')->dropDownList(['Pending' => 'Pending', 'Approved' => 'Approved' ],['prompt'=>'Select Option','style'=>"width:500px;"]);
 
-// echo Html::activeDropDownList($model, 'status',
-//       ArrayHelper::map(Order::find()->all(), 'status', 'status'))
-// echo  $form->field($model, 'status')->dropDownList(['Pending','Approved'],['style'=>'width:500px'])
 
 ?>
 <?php $model3=Orderdetail::find()->where(['order_id'=>$model->order_id])->andWhere(['status'=>'1'])->all(); 
@@ -116,12 +95,6 @@ foreach ($model3 as $key => $value) {
         $shade_ids=$shade_ids.$value->shade_id."\n";
 
 }
-//print_r($shade_ids);
-//echo "<pre>";print_r($model3); echo "</pre>"?>
-    <?php //echo $form->field($model3, 'shade_id')->textarea(['maxlength' => true,'rows' => 6,'style'=>'width:500px','id'=>'inputfield','oninput'=>'myfunction()']) ?>
-
-     <?php 
-     // $form = ActiveForm::begin(); 
      ?>
 
     <?php
@@ -148,19 +121,6 @@ foreach ($model3 as $key => $value) {
         </div>  
     </div>
     <!-- row -->
-<!-- 
-/*
-///////////////////
-*/
-deleting from here
- -->
-
-<!-- 
-
-///////////////////
-///////////////////
-deleting till here 
--->
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Add Order' : 'Update Order', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
@@ -171,99 +131,26 @@ deleting till here
 </div>
 
 <script>
-var data = [];//new Array();
-      // data['0'] = 'hi';
-      // data['1'] = 'bye';
-      // data['4']='sdf';
-      // data['3']='3';
+  var data = [];
+  var newHTML = [];
 
-      var newHTML = [];
-/////
-
-/////
-
-function toggle_func(){
-  var x=  document.getElementById('hiddenDiv');//.toggle();
-  if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-
-/*
-// console.log($id);
-    // newHTML.push('<span>' + data[0] + '</span>');
-  //   for (var key in data) {
-  // // console.log("key " + key + " has value " + myArray[key]);
-  //   newHTML.push('<span>' key +" "+ data[key] + '</span>');
-
-  //     }
-  // var lastWord = document.getElementById("inputfield").value.match(/\w+$/)[0];
-// var lastWord = document.getElementById("inputfield").value.split("-").pop();
-
-// var lastWord = document.getElementById("inputfield").value.split(" ");
-// lastWord= lastWord[lastWord.length - 1];
-var lastWord = document.getElementById("inputfield").value.split("\n");//.split("/n").splice(-1)[0];
-
-// console.log(lastWord);
-// console.log(lastWord[lastWord.length - 2]);
-lastWord=lastWord[lastWord.length - 2]
-
-
-if(lastWord[0]=='0')
-{
-  lastWord=lastWord.substr(1);
-}
-if(lastWord[0]=='0')
-{
- lastWord=lastWord.substr(1); 
-}
-
-
-if (lastWord=='801')
-{
-  lastWord='White';
-}
-else if(lastWord=='802')
-{
-  lastWord='Black'; 
-}
-else if(lastWord=='803')
-{
-  lastWord='Red';
-}
-        var newHTML = [];
-
-
-
-        if (lastWord in data){
-            data[lastWord]+=1;
-
-        }
-        else{
-          data[lastWord]=1;
-        }
-      // for (var i = 0; i < data.length; i++) {
-        for (var i in data){
-          // console.log( data[i]);
-    newHTML.push('<div>' + '<span>' + "Shade " + i+ '</span>' + '<span style="float:right">'+"   Quantity: "+data[i] +'</span>'+ '</div>' );
-}
-// newHTML="underconstruction";
-
-
-    document.getElementById("myid").innerHTML=newHTML.join(" ");
- 
+  function toggle_func(){
+    var x=  document.getElementById('hiddenDiv');//.toggle();
+    if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
   }
-*/
-         // window.onload = myfunction($all_shades );
-         // alert('<?php echo json_encode($all_shades)?>');
-        var all_s = '<?php  echo ($all_shades) ;?>';
-        setTimeout(function(){ 
-              myfunction(all_s);//console.log(all_s+'sl');
-        // alert("Hello"); 
-      }, 2000);
+
+
+   // window.onload = myfunction($all_shades );
+   // alert('<?php echo json_encode($all_shades)?>');
+  var all_s = '<?php  echo ($all_shades) ;?>';
+  setTimeout(function(){ 
+        myfunction(all_s);//console.log(all_s+'sl');
+  // alert("Hello"); 
+}, 2000);
 
 
 

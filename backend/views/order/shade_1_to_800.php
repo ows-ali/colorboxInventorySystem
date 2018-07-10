@@ -61,14 +61,10 @@ else
 {
    // echo "stringd";
     $shades = Shade::find()->where(['>=','shade_id',801])->asArray()->all();
-    //print_r($shades);
-    // print_r($shades);
-    // $shade_quantites = ( ArrayHelper::map(Shade::find()->where(['>=', 'shade_id',801])->asArray()->all(),'shade_id','quantity'));
+    
     $shade_quantities = Shade::find()->select('quantity')->column();
     $shade_quantities = array_combine(range(1, count($shade_quantities)), array_values($shade_quantities));
 
-    //( ArrayHelper::map( Shade::find()->where(['>=','shade_id',801])->all(),'shade_id','quantity'));
-    //print_r($shade_quantities);//return;
 }
 $shade_with_names = Shade::find()->select('shade_name')->where(['>','shade_id',800])->column();
 // print_r($shade_quantites);
@@ -85,9 +81,7 @@ if (1){//$type=='view'){
 // }
 ?>
 
-<?php //print_r($model2); 
-// $shade_quantities = ArrayHelper::map( OrderDetail::find()->where(['order_id'=>$model->order_id])->asArray()->all()  , 'shade_id', 'quantity');
-
+<?php 
 while($shade_with_names)
 {
 
@@ -116,49 +110,20 @@ while($shade_with_names)
     <td style="text-align:center;font-size:10px;font-weight:bold;height:24px">
         <?php
         $flag=0;
-        // foreach ($model2 as $keyy => $valuee) {
-        //     if ($model2[$keyy]->shade_id==803)
-        //     {
-        //         echo $model2[$keyy]->quantity;
-        //         $flag=1;
-        //         break;
-        //     }
-        //     # code...
-        // }
-        // $shade_quantity = OrderDetail::find()->where(['order_id'=>$model->order_id])->andWhere(['shade_id'=>$shade_with_name_ind])->one();
+       
         echo (isset($shade_quantities[$shade_with_name_ind]))?$shade_quantities[$shade_with_name_ind]:'';
         $shade_with_name_ind+=1;
-
-        // echo (!empty($shade_quantity))? $shade_quantity->quantity : "<br>";
-        
+ 
         if ($flag==0)
         {
             // echo "<br>";
         }
-        // print_r( $model2['802']);//['802']->quantity;  
 
         ?>
     </td>
     <td style="font-size:10px;font-weight:bold">
         <?php
-        // echo isset($model2[801]).'d';
-        // $flag=0;
 
-        // foreach ($model2 as $keyy => $valuee) {
-        //     if ($model2[$keyy]->shade_id==802)
-        //     {
-        //         echo $model2[$keyy]->quantity;
-        //         $flag=1;
-        //         break;
-        //     }
-        //     # code...
-        // }
-        // if ($flag==0)
-        // {
-        //     // echo "<br>";
-        // }
-
-        // $shade_quantity = OrderDetail::find()->where(['order_id'=>$model->order_id])->andWhere(['shade_id'=>$shade_with_name_ind])->one();
         echo (isset($shade_quantities[$shade_with_name_ind]))?$shade_quantities[$shade_with_name_ind]:'';
         $shade_with_name_ind+=1;
 
@@ -170,22 +135,7 @@ while($shade_with_names)
     </td>
     <td style="font-size:10px;font-weight:bold">
         <?php
-        // $flag=0;
-        // foreach ($model2 as $keyy => $valuee) {
-        //     if ($model2[$keyy]->shade_id==801)
-        //     {
-        //         echo $model2[$keyy]->quantity;
-        //         $flag=1;
-        //         break;
-        //     }
-        //     # code...
-        // }
-        // if ($flag==0)
-        // {
-        //     // echo "<br>";
-        // }
-
-        // $shade_quantity = OrderDetail::find()->where(['order_id'=>$model->order_id])->andWhere(['shade_id'=>$shade_with_name_ind])->one();
+        
         echo (isset($shade_quantities[$shade_with_name_ind]))?$shade_quantities[$shade_with_name_ind]:'';
         $shade_with_name_ind+=1;
 
@@ -205,53 +155,49 @@ while($shade_with_names)
     // }
     $type='create';
     ?>
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
+      <table id="example2" class="table table-bordered table-hover">
+        <thead>
 
-                </thead>
+        </thead>
 
 
-                <tbody>
+        <tbody>
 
 
 <?php                
-                while ($ptr<=$len)
-                {
+        while ($ptr<=$len)
+        {
 ?>                    
 
-                <tr>
+        <tr>
 
 <?php
 
-                    // $var=1;
-                    for ($i = 0 ;$i<$var;$i++){
-         ?>
-                            <th style="width: 5.5%;background-color: #D0D0D0;font-size:10px;">
-                                <?php
-                                    echo $shadeList[$ptr];
-                                    $ptr=$ptr+1; 
-                                    if ($ptr>$len){
-                                        break;
-                                    }
-                                ?>
-                            </th>
+            // $var=1;
+            for ($i = 0 ;$i<$var;$i++){
+ ?>
+                    <th style="width: 5.5%;background-color: #D0D0D0;font-size:10px;">
+                        <?php
+                            echo $shadeList[$ptr];
+                            $ptr=$ptr+1; 
+                            if ($ptr>$len){
+                                break;
+                            }
+                        ?>
+                    </th>
 <?php
-                }
+        }
 
 ?>
-    
-                </tr>
-                
-                
 
-                <tr>
+        </tr>
+        
+        
+
+        <tr>
 
 <?php
 
-// echo '<pre>';
-// print_r($model);
-// die;
-                    // $var=18;
 ?>
 
 
@@ -269,22 +215,6 @@ if (1)//$type=='create')
                             <td style="height:30px;">
                                 <?php
                                      
-// print_r($model2[0]);
-
-// print_r($model);
-// die;
-// print_r($ptr2);
-// die;
-                                     //echo $form->field($model2[$ptr2-1],'quantity')->textinput(['maxlength' => true])->label(false);
-//                                     echo $form->field($model,'quantity[]')->checkbox(array('label'=>''));//textinput(['maxlength' => true,])->label(false);
-  
-
-//my code here (uncommment above line)
-                                
-// echo "<pre>";
-// print_r($model2[$shadeptr]->shade_id);
-// die;
-
 
 if ($shadeptr< sizeof($model2) && $model2[$shadeptr]->shade_id == $ptr2){
 ?>
@@ -299,8 +229,6 @@ if ($shadeptr< sizeof($model2) && $model2[$shadeptr]->shade_id == $ptr2){
 </div>
     <?php
 
-
-
     // echo $model2[$shadeptr]->quantity;
     $shadeptr=$shadeptr+1;
 }
@@ -311,62 +239,61 @@ else
 
 ?>
 
- <!-- <input type="checkbox" name="quantity1[]" value = <?php echo $ptr2; ?> ></input> -->
 
 
 <?php
 
-                                     // die;
-                                     $ptr2=$ptr2+1;
-                                     if ($ptr2>$len){
-                                        break;
-                                     }
-
-                                ?>
-
-                            </td>
-
-
-<?php
-                } //end for
-            }// end if
-
-            ?>
-
-                </tr>
-
-<?php
-            }
-?>            
-
-                </tbody>
-
-
-                
-                <tfoot>
-                <tr>
-
-<?php
-
-                    // $var=18;
-                    for ($i = 0 ;$i<$var;$i++){
-         ?>
-         <!-- 
-                            <th><?php
-                            // echo 0 
-                            ?></th>
-                             -->
-<?php
-                }
+     // die;
+     $ptr2=$ptr2+1;
+     if ($ptr2>$len){
+        break;
+     }
 
 ?>
-                </tr>
+
+</td>
 
 
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+<?php
+        } //end for
+    }// end if
+
+    ?>
+
+        </tr>
+
+<?php
+    }
+?>            
+
+        </tbody>
+
+
+        
+        <tfoot>
+        <tr>
+
+<?php
+
+            // $var=18;
+            for ($i = 0 ;$i<$var;$i++){
+ ?>
+ <!-- 
+                    <th><?php
+                    // echo 0 
+                    ?></th>
+                     -->
+<?php
+        }
+
+?>
+        </tr>
+
+
+        </tfoot>
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
 

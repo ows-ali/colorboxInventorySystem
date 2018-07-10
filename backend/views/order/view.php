@@ -165,13 +165,7 @@ elseif ($type=="view") {
             <?= Html::a('Update', ['update', 'id' => $model->order_id], ['class' => 'btn btn-primary']) ?>
      <?php } ?>       
             <?php
-            // echo Html::a('Delete', ['delete', 'id' => $model->order_id], [
-            //     'class' => 'btn btn-danger',
-            //     'data' => [
-            //         'confirm' => 'Are you sure you want to delete this item?',
-            //         'method' => 'post',
-            //     ],
-            // ]) 
+           
             ?>
 
         </p>

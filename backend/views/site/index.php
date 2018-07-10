@@ -32,9 +32,7 @@ $this->title="Dashboard";
             <div class="icon">
                 <i class="ion ion-bag"></i>
             </div>
-            <!-- <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-            </a> -->
+           
         </div>
     </div><!-- ./col -->
     <div class="col-lg-4 col-xs-6">
@@ -149,104 +147,45 @@ $this->title="Dashboard";
 
             setdata();   
             document.getElementById('top_executed').innerHTML="";
-            // console.log(date_start);
-            // console.log(date_end);
-            // console.log(region_val);
-            // console.log(city_val);
+           
         });
     };//onload
 
     function setdata()
     {
-            // date_start = $('.date_field').val();
-            // date_end = $('#w0-2').val();
-            // region_val = $('.region_field').val();
-            // city_val = $('.city_field').val();
-            year_val = $('.year_field').val();
+           
+        year_val = $('.year_field').val();
 
-            $.ajax({
-                   url: base_url+'site/forgraphs',
-                   // '<?php echo Yii::$app->request->baseUrl. '/general/ajaxactiongetareas' ?>',
-                   type: 'post',
-                   data: {
-                        // lim : lim,
-                        // date_start : date_start,
-                        // date_end  : date_end,
-                        // region_val : region_val,
-                        year_val  : year_val
-                             //searchname: $("#citydata").val() , 
-                             // _csrf : '<?=Yii::$app->request->getCsrfToken()?>'
-                         },
-                   success: function (data) {
-                    console.log(data);
-                    // console.log(data[0]);
-                    // console.log(data[0][0]);
-                    // console.log(data[0][0].name_str);
+        $.ajax({
+               url: base_url+'site/forgraphs',
+               
+               type: 'post',
+               data: {
+                    year_val  : year_val
+                     },
+               success: function (data) {
+                console.log(data);
+                
+                maintitle="Overall";
+                
+                console.log(data[0]);
 
-                    // dat_orders=[];
-                    // dat_sub_orders=[];                    
+                dat_orders=[];
+                $.each(data[0], function( index, value ) {
+                  //alert( index + ": " + value );
+                    dat_orders.push((value));
+                });
 
-                    // dat_doc_samp=[];
-                    maintitle="Overall";
-                    // if (!(""==region_val))
-                    //     maintitle = 'Region wise';
-                    // if (!(""==(city_val)))
-                    //     maintitle = 'City wise';
-
-console.log(data[0]);
-///////////////////
-                    dat_orders=[];
-                    $.each(data[0], function( index, value ) {
-                      //alert( index + ": " + value );
-                        dat_orders.push((value));
-                    });
-
-                    cat_orders=[];
-                    $.each(data[1], function( index, value ) {
-                      //alert( index + ": " + value );
-                        cat_orders.push((value));
-                    });
-///////////////////
-console.log(cat_orders);
-console.log(dat_orders);
-
-                    // dat_sub_orders=[];
-                    // $.each(data[1], function( index, value ) {
-                    //   //alert( index + ": " + value );
-                    //     dat_sub_orders.push(parseFloat(value.val));
-                    // });
-
-                    // cat_sub_orders=[];
-                    // $.each(data[1], function( index, value ) {
-                    //   //alert( index + ": " + value );
-                    //     cat_sub_orders.push((value.name_str));
-                    // });
+                cat_orders=[];
+                $.each(data[1], function( index, value ) {
+                  //alert( index + ": " + value );
+                    cat_orders.push((value));
+                });
 
 
-
-                    // dat_doc_samp=[];
-                    // $.each(data[2], function( index, value ) {
-                    //   //alert( index + ": " + value );
-                    //     dat_doc_samp.push(parseFloat(value.val));
-                    // });
-
-                    // cat_doc_samp=[];
-                    // $.each(data[2], function( index, value ) {
-                    //   //alert( index + ": " + value );
-                    //     cat_doc_samp.push((value.name_str));
-                    // });
-
-                    // console.log(cat_orders);
-                    // dat_orders=["99", "30", "7", "17", "94"];
-                        // data[0].forEach(dat){
-                        //     dat_orders[]=datdat.SPO_PLAN_ID;
-                        // };
-
-     // dat_doc_samp =[107, 231, 335,  125, 525];
-
-                   makegraphs();
-                   }
-            });
+               makegraphs();
+               }
+        });
     }
 
     function make_sub_graphs()
@@ -289,17 +228,6 @@ console.log(dat_orders);
                     }
                 }
             },
-            // legend: {
-            //     layout: 'vertical',
-            //     align: 'right',
-            //     verticalAlign: 'top',
-            //     x: -40,
-            //     y: 80,
-            //     floating: true,
-            //     borderWidth: 1,
-            //     backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-            //     shadow: true
-            // },
             credits: {
                 enabled: false
             },
@@ -323,9 +251,7 @@ console.log(dat_orders);
             title: {
                 text: 'Total Orders per month'
             },
-            // subtitle: {
-            //     text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-            // },
+            
             xAxis: {
                 categories: cat_orders,
                 title: {
@@ -342,9 +268,7 @@ console.log(dat_orders);
                     overflow: 'justify'
                 }
             },
-            // tooltip: {
-            //     valueSuffix: ' millions'
-            // },
+            
             plotOptions: {
                 column: {
                     dataLabels: {
@@ -366,10 +290,7 @@ console.log(dat_orders);
                    // '<?php echo Yii::$app->request->baseUrl. '/general/ajaxactiongetareas' ?>',
                    type: 'post',
                    data: {
-                        // lim : lim,
-                        // date_start : date_start,
-                        // date_end  : date_end,
-                        // region_val : region_val,
+                        
                         year_val  : year_val,
                         month_val : this.category
                              //searchname: $("#citydata").val() , 
@@ -380,8 +301,8 @@ console.log(dat_orders);
                     console.log(data);
                     maintitle="Overall";
 
-console.log(data[0]);
-///////////////////
+                    console.log(data[0]);
+                    ///////////////////
                     dat_sub_orders=[];
                     $.each(data[0], function( index, value ) {
 
@@ -393,16 +314,9 @@ console.log(data[0]);
                       //alert( index + ": " + value );
                         cat_sub_orders.push((value));
                     });
-///////////////////
-console.log(cat_sub_orders);
-console.log(dat_sub_orders);
-
-
-                    // cat_doc_samp=[];
-                    // $.each(data[2], function( index, value ) {
-                    //   //alert( index + ": " + value );
-                    //     cat_doc_samp.push((value.name_str));
-                    // });
+                    ///////////////////
+                    console.log(cat_sub_orders);
+                    console.log(dat_sub_orders);
 
                    make_sub_graphs();
                 }
@@ -414,17 +328,6 @@ console.log(dat_sub_orders);
 
             },
 
-            // legend: {
-            //     layout: 'vertical',
-            //     align: 'right',
-            //     verticalAlign: 'top',
-            //     x: -40,
-            //     y: 80,
-            //     floating: true,
-            //     borderWidth: 1,
-            //     backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-            //     shadow: true
-            // },
             credits: {
                 enabled: false
             },
@@ -433,12 +336,6 @@ console.log(dat_sub_orders);
                 data: dat_orders//[107, 31, 635, 203, 25]
             }, ]
         });
-        //top executed
-    ////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
         
     }//make graphs
 </script>

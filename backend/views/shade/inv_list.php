@@ -11,11 +11,6 @@ use yii\bootstrap\Alert;
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
 
-
-
-
-
-
 if ($type=="viewpdf")
 {
 
@@ -23,9 +18,6 @@ $this->title = "Color Box";//$model->order_id;
 $this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
-
-
 
 <div class="order-view">
 
@@ -37,11 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
 </h2>
     </div>
 
-
-
-
-
-
 <div>
     <b>Total Items in Inventory: </b><?php
 
@@ -50,11 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
     foreach ($model2 as $key => $value) {
         $sum+=$model2[$iter]->quantity;
         $iter+=1;
-
-        # code...
     }
-
-
 
 $str=$sum;
 
@@ -62,29 +45,15 @@ $str=$sum;
      ?>
 </div>
 
-
-
-
 <br>
 <br>
 <?php
 }
 
-/*
-//////////////////////////////////////////
-//////////////////////////////////////////
-
-
-
-*/
-
-
 ?>
-
 
 <?php 
 echo $this->render('../order/shade_1_to_800', array('model'=>$model,'model2'=>$model2));
-
 // die();
 
 ?>

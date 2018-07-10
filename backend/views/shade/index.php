@@ -35,69 +35,58 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?php    
     $gridColumns= [
-            // ['class' => 'yii\grid\SerialColumn'],
+        // ['class' => 'yii\grid\SerialColumn'],
 
-            'shade_id',
-            'shade_name',
-            // 'gender',
-            // 'male',
-            [
-            // 'class' => 'yii\grid\ActionColumn',
-            // 'class' => DataColumn::className(),
+        'shade_id',
+        'shade_name',
+        // 'gender',
+        // 'male',
+        [
+  
+           'label'=>'Male',
+           // 'format'=>'raw',
+           'attribute'=>'male',
+           // 'value' => 'male' == 0 ? 'No' : 'Yes',  // <----- this bit is not working
+          'filter' => array('0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')),
 
-            // 'class' => SerialColumn::className()
-                 'label'=>'Male',
-                 // 'format'=>'raw',
-                 'attribute'=>'male',
-                 // 'value' => 'male' == 0 ? 'No' : 'Yes',  // <----- this bit is not working
-                'filter' => array('0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')),
+           // 'value' => function($model, $key, $index, $column) { return $model->male == 0 ? 'No' : 'Yes';},
+          'value' => function($model) {
+              return $model->male == 1 ? 'Yes' : 'No';
+          }
+        ],
+        [
+      
 
-                 // 'value' => function($model, $key, $index, $column) { return $model->male == 0 ? 'No' : 'Yes';},
-                'value' => function($model) {
-                    return $model->male == 1 ? 'Yes' : 'No';
-                }
-            ],
-            [
-            // 'class' => 'yii\grid\ActionColumn',
-            // 'class' => DataColumn::className(),
+         'label'=>'Female',
+         // 'header'=>'Female',
+         'attribute'=>'female',
 
-             // 'class' => SerialColumn::className()
-
-             'label'=>'Female',
-             // 'header'=>'Female',
-             'attribute'=>'female',
-
-             'format'=>'boolean'
-             // 'format'=>'raw',
-             // 'value' => 'male' == 0 ? 'No' : 'Yes',  // <----- this bit is not working
-            // 'filter' => array('0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')),
-
-             // 'value' => function($model, $key, $index, $column) { return $model->male == 0 ? 'No' : 'Yes';},
-            // 'value' => function($model) {    return $model->female == 1 ? 'Yes' : 'No';}
-            ],
-            // 'female',
-            'quantity',
-            // 'status',
-            // 'created_at',
-            [
-              'class' => 'yii\grid\ActionColumn',
-              'visible' => (Yii::$app->user->identity->name=="Admin"),
-              'header' => 'Actions',
-              'headerOptions' => ['style' => 'color:#337ab7'],
-              'template' => '{update}',
-              'buttons' => [
-                'update' => function ($url, $model) {
-                    return Html::a('<span class="glyphicon glyphicon-pencil"> Change Quantity</span>', $url, [
-                                'title' => Yii::t('app', 'quantity-update'),
-                    ]);
-                },
-
-                ],
+         'format'=>'boolean'
+        
+        ],
+        // 'female',
+        'quantity',
+        // 'status',
+        // 'created_at',
+        [
+          'class' => 'yii\grid\ActionColumn',
+          'visible' => (Yii::$app->user->identity->name=="Admin"),
+          'header' => 'Actions',
+          'headerOptions' => ['style' => 'color:#337ab7'],
+          'template' => '{update}',
+          'buttons' => [
+            'update' => function ($url, $model) {
+                return Html::a('<span class="glyphicon glyphicon-pencil"> Change Quantity</span>', $url, [
+                            'title' => Yii::t('app', 'quantity-update'),
+                ]);
+            },
 
             ],
+
+        ],
 
             // ['class' => 'yii\grid\ActionColumn'],
-        ];
+    ];
     ?>
 
     <?= GridView::widget([
@@ -119,32 +108,11 @@ $this->params['breadcrumbs'][] = $this->title;
     //   '{export}',
         '{toggleData}',
     ],
-    // 'panel'=>[
-    //  'floatHeader'=>false,
-       
-    //     'showFooter'=>false
-
-    // ],
-    // 'export'=>[
-    //     'fontAwesome'=>true,
-    //     'showConfirmAlert'=>false,
-    //     'target'=>GridView::TARGET_BLANK,
-    //     'columns'=>'quantity',
-
-    // ],
+   
     'toggleData'=>[
             'showConfirmAlert'=>false,
 
     ],
-    // 'exportConfig' => [
-            // 'gridColumns'=>'quantity',
-
-    // GridView::CSV => ['label' => 'Save as CSV'],
-    // // GridView::HTML => [// html settings],
-    // // GridView::PDF => ['label'=>'dd'],
-        
-        // ],
-
-   // 'showPageSummary'=>true,
+   
     ]); ?>
 </div>

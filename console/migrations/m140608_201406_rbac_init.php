@@ -88,9 +88,14 @@ class m140608_201406_rbac_init extends \yii\db\Migration
         $auth->add($admin);
         $auth->assign($admin, 1);
 
+
         $user = $auth->createRole('user');
         $user->description = 'User';
         $auth->add($user);
+        $auth->assign($user, 2);
+        $auth->assign($user, 3);
+        
+
 
         $guest = $auth->createRole('guest');
         $guest->description = 'Guest';

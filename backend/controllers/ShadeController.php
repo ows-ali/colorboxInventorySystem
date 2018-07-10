@@ -75,106 +75,63 @@ class ShadeController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-public function actionViewpdf() {
-    // get your HTML raw content without any layouts or scripts
+    public function actionViewpdf() {
 
- 
-    // require_once __DIR__ . '/../../vendor/autoload.php';
-    // setup kartik\mpdf\Pdf component
-$mpdf = new mPDF('utf-8', 'A4-P');
-// $con=renderPartial('sample');
+        $mpdf = new mPDF('utf-8', 'A4-P');
 
-/////////////////////
- /*
- $model2 = Orderdetail::find()->where(['order_id' => $id])->orderBy(['shade_id'=>SORT_ASC])->all();
+        $model2=Shade::find()->all();
 
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-            'model2' => $model2,
+        $iter=0;
+        $sum=0;
+        foreach ($model2 as $key => $value) {
+            $sum+=$model2[$iter]->quantity;
+            $iter+=1;
+
+        }
+
+        $str=$sum;
+        $mpdf->SetHTMLHeader('<div>
+        <div style="float: right; width: 8%;">
+
+        <b>Page:</b> {PAGENO}
+        </div>
+        <div >
+        <b>Printed on: </b> '.date('d M Y').'
+        </div>
+        <div style="clear: both; margin: 0pt; padding: 0pt; "></div>
+        </div>');
+        // $mpdf->SetHeader('Document Title|{PAGENO}');
+        $mpdf->WriteHTML($this->renderPartial('inv_list',['model2'=>$model2,'type'=>"viewpdf"] ));
+        $mpdf->Output('colorbox_order_'.date('d-m-Y').'.pdf','D');
+        
+        $pdf = new Pdf([
+            // set to use core fonts only
+            'mode' => Pdf::MODE_CORE, 
+            // A4 paper format
+            'format' => Pdf::FORMAT_A4, 
+            // portrait orientation
+            'orientation' => Pdf::ORIENT_PORTRAIT, 
+            // stream to browser inline
+            'destination' => Pdf::DEST_BROWSER, 
+            // your html content input
+            // 'content' => $content,  
+            // format content from your own css file if needed or use the
+            // enhanced bootstrap css built by Krajee for mPDF formatting 
+            'cssFile' => '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css',
+            // any css to be embedded if required
+            'cssInline' => '.kv-heading-1{font-size:18px}', 
+             // set mPDF properties on the fly
+            'options' => ['title' => 'Krajee Report Title'],
+             // call mPDF methods on the fly
+            'methods' => [ 
+                'SetHeader'=>['Krajee Report Header'], 
+                'SetFooter'=>['{PAGENO}'],
+            ]
         ]);
-
-*/
-
-//////////////////
-// $id=4;
-
-$model2=Shade::find()->all();//Orderdetail::find()->where(['order_id' => $id])->orderBy(['shade_id'=>SORT_ASC])->all();
-
-
-    $iter=0;
-    $sum=0;
-    foreach ($model2 as $key => $value) {
-        $sum+=$model2[$iter]->quantity;
-        $iter+=1;
-
-        # code...
+        
+        // return the pdf output as per the destination setting
+        return $pdf->render(); 
     }
-
-
-
-$str=$sum;
-// $mpdf->SetHTMLHeader('<div >Printed on:'.date('d M Y').'</div><div style="float: right; ">Page: {PAGENO}</div>');
-$mpdf->SetHTMLHeader('<div>
-
-
-
-<div style="float: right; width: 8%;">
-
-<b>Page:</b> {PAGENO}
-</div>
-
-<div >
-
-
-<b>Printed on: </b> '.date('d M Y').'
-
-</div>
-
-<div style="clear: both; margin: 0pt; padding: 0pt; "></div>
-
-
-
-</div>');
-// $mpdf->SetHeader('Document Title|{PAGENO}');
-$mpdf->WriteHTML($this->renderPartial('inv_list',['model2'=>$model2,'type'=>"viewpdf"] ));
-$mpdf->Output('colorbox_order_'.date('d-m-Y').'.pdf','D');
-// $mpdf->Output('colorbox_order_'.date('d-m-Y').'.pdf','I');
-////////////////////
-////////////////////
-/////////////////
-
-///////////////////
-/////////////////
-/////////////////////
-   // $content = $this->renderPartial('sample');//['view', 'id' => 46]);
-    $pdf = new Pdf([
-        // set to use core fonts only
-        'mode' => Pdf::MODE_CORE, 
-        // A4 paper format
-        'format' => Pdf::FORMAT_A4, 
-        // portrait orientation
-        'orientation' => Pdf::ORIENT_PORTRAIT, 
-        // stream to browser inline
-        'destination' => Pdf::DEST_BROWSER, 
-        // your html content input
-        // 'content' => $content,  
-        // format content from your own css file if needed or use the
-        // enhanced bootstrap css built by Krajee for mPDF formatting 
-        'cssFile' => '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css',
-        // any css to be embedded if required
-        'cssInline' => '.kv-heading-1{font-size:18px}', 
-         // set mPDF properties on the fly
-        'options' => ['title' => 'Krajee Report Title'],
-         // call mPDF methods on the fly
-        'methods' => [ 
-            'SetHeader'=>['Krajee Report Header'], 
-            'SetFooter'=>['{PAGENO}'],
-        ]
-    ]);
-    
-    // return the pdf output as per the destination setting
-    return $pdf->render(); 
-}
 
     /**
      * Creates a new Shade model.
@@ -190,25 +147,16 @@ $mpdf->Output('colorbox_order_'.date('d-m-Y').'.pdf','D');
         $total_shades = sizeof($total_shades);
         // print_r (sizeof($total_shades));die();
         $items = array_fill('1',strval($total_shades), 0);
-        // echo "<pre>";
-        // $a[1]="p";
-        // $a[2]=99;
-        // print_r($a[1]);
-        // print_r($items);
-        // die;
+        
 
         $model  = new InventoryIn();
 
-        if ($model->load(Yii::$app->request->post()) ){//&& $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {//&& $model->save()) {
         // echo "<pre>";
         // print_r($_POST);
         // die;
             $new_array = explode("\n", $model->shade_id);
-            // print_r(is_numeric($new_array[0]) ) ;
-            // print_r(1);
-            // print_r(is_numeric(9));
-            // die();
-
+            
             foreach ($new_array as $key => $value) {
                 // print_r($value);
                 // die;
@@ -226,12 +174,8 @@ $mpdf->Output('colorbox_order_'.date('d-m-Y').'.pdf','D');
                 'model' => $model,]);
                     }
                 }
-
-                # code...
             }
-            // print_r($items);
-            // die;
-
+            
             foreach ($items as $key => $value) {
 
                 if ($value>0){
@@ -240,37 +184,22 @@ $mpdf->Output('colorbox_order_'.date('d-m-Y').'.pdf','D');
                     $modelentry->quantity=$value;
                     $modelentry->save();
 
-                             
-                   //don't uncomment this part if u wnt to add shades
-
-
                     $shadeupdate = Shade::findOne($key);//;new Shade();
                     $shadeupdate->quantity = $shadeupdate->quantity+$value;
                     $shadeupdate->save();
-
-                    
-
-
 
                 }
                 # code...
             }   
 
-
-
-            // die;
-
-
-
-
-    //        return $this->redirect(['view', 'id' => $model->shade_id]);
-  \Yii::$app->getSession()->setFlash('success', 'New Items added in the Inventory successfully!');
+            \Yii::$app->getSession()->setFlash('success', 'New Items added in the Inventory successfully!');
 
             return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             ]);
-        } else {
+        } 
+        else {
             return $this->render('create', [
                 'model' => $model,
             ]);

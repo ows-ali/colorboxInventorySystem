@@ -60,38 +60,20 @@ class SiteController extends Controller
         }
         $all_days=['Week 1','Week 2','Week 3','Week 4'];
         $weeks = [];
-        // $months[] = 'Jan';
-        // $months[]='Feb';
+        
         $orders = [];
-        // foreach ($all_months as $key => $value) {
-            # code...
 
+        $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-01 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-07 23:59:59')])->all();
+        $orders[]=sizeof($orders_per_month);
 
-            // if ( date($year_val,'-'.$key+1) <= date('Y-m')  ) {
-                // $months[] = $value;
-                $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-01 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-07 23:59:59')])->all();
-                $orders[]=sizeof($orders_per_month);
+        $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-08 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-14 23:59:59')])->all();
+        $orders[]=sizeof($orders_per_month);
 
+        $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-15 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-21 23:59:59')])->all();
+        $orders[]=sizeof($orders_per_month);
 
-                // $months[] = $value;
-                $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-08 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-14 23:59:59')])->all();
-                $orders[]=sizeof($orders_per_month);
-
-
-                // $months[] = $value;
-                $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-15 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-21 23:59:59')])->all();
-                $orders[]=sizeof($orders_per_month);
-
-                // $months[] = $value;
-                $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-22 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-31 23:59:59')])->all();
-                $orders[]=sizeof($orders_per_month);
-
-                # code...
-            // }
-        // }
-        // $orders_arr = Order::find()->where(['>=', 'created_at',date($year_val.'-01-01 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-01-31 00:00:00')])->all();
-        // $orders[] =sizeof($orders);
-        // $orders[]=99;
+        $orders_per_month = Order::find()->where(['>=', 'created_at',date($year_val.'-'.($month_val).'-22 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-'.($month_val).'-31 23:59:59')])->all();
+        $orders[]=sizeof($orders_per_month);
 
         $ret = [];
         $ret[]=$orders;
@@ -104,8 +86,6 @@ class SiteController extends Controller
         $year_val = $_POST['year_val'];
         $all_months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         $months = [];
-        // $months[] = 'Jan';
-        // $months[]='Feb';
         $orders = [];
         foreach ($all_months as $key => $value) {
             # code...
@@ -118,10 +98,7 @@ class SiteController extends Controller
                 # code...
             }
         }
-        // $orders_arr = Order::find()->where(['>=', 'created_at',date($year_val.'-01-01 00:00:00')])->andWhere(['<', 'created_at',date($year_val.'-01-31 00:00:00')])->all();
-        // $orders[] =sizeof($orders);
-        // $orders[]=99;
-
+     
         $ret = [];
         $ret[]=$orders;
         $ret[]=$months;

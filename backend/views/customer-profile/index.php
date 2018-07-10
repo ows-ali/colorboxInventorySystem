@@ -29,37 +29,29 @@ $this->params['breadcrumbs'][] = $this->title;
             'address:ntext',
             'phone_number1',
             'phone_number2',
-            // 'phone_number3',
-            // 'customer_type',
-            // 'description:ntext',
-            // 'status',
-            // 'created_at',
-              [
-          'class' => 'yii\grid\ActionColumn',
-          'visible' => (Yii::$app->user->identity->name=="Admin"),
-          'header' => '',
-          'headerOptions' => ['style' => 'color:#337ab7'],
-          'template' => '{view}{update}',
-          'buttons' => [
-            'view' => function ($url, $model) {
-                return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, [
-                            'title' => Yii::t('app', 'quantity-update'),
-                                ]);
-                        },
-                        
+            
+            [
+              'class' => 'yii\grid\ActionColumn',
+              'visible' => (Yii::$app->user->identity->name=="Admin"),
+              'header' => '',
+              'headerOptions' => ['style' => 'color:#337ab7'],
+              'template' => '{view}{update}',
+              'buttons' => [
+                'view' => function ($url, $model) {
+                    return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, [
+                        'title' => Yii::t('app', 'quantity-update'),
+                            ]);
+                },                            
 
-            'edit' => function ($url, $model) {
-                return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
-                            'title' => Yii::t('app', 'quantity-update'),
-                                ]);
-                        },
-                        ],
-
+                'edit' => function ($url, $model) {
+                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
+                        'title' => Yii::t('app', 'quantity-update'),
+                    ]);
+                },
+            ],
 
           ],
 
-
-            // ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

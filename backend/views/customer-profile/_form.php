@@ -26,12 +26,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6, 'maxlength' => true,'style'=>'width:500px']) ?>
 
-    <?php
-    // echo $form->field($model, 'status')->dropDownList([ '0', '1', ], ['prompt' => '', 'maxlength' => true,'style'=>'width:500px']) ?>
 
-     <?php
-     // echo $form->field($model, 'created_at')->textInput() 
-     ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
