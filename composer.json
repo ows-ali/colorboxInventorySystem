@@ -23,16 +23,17 @@
         "2amigos/yii2-chartjs-widget": "~2.0",
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-export": "@dev",
-        "bizley/migration": "~2.3.0"
+        "bizley/migration": "~2.3.0",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-debug": "*"
+
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
-        "yiisoft/yii2-debug": "*",
-        "yiisoft/yii2-gii": "*",
+        
         "yiisoft/yii2-faker": "*",
 
         "kartik-v/yii2-widget-datepicker": "@dev"
-
 
     },
     "config": {
